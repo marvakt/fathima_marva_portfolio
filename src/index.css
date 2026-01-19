@@ -18,37 +18,37 @@
 }
 
 :root {
-  /* Enforce Dark Neon Theme by default */
-  --background: oklch(0.1 0 0);
-  /* Very dark background */
+  /* Electric Violet Theme */
+  --background: oklch(0.05 0.02 280);
+  /* Deep Void Purple */
   --foreground: oklch(0.985 0 0);
   /* White text */
 
-  /* Neon Green Primary */
-  --primary: oklch(0.87 0.29 142);
-  /* Approx #00FF94 */
-  --primary-foreground: oklch(0.1 0 0);
+  /* Electric Violet Primary */
+  --primary: oklch(0.65 0.25 280);
+  /* Vibrant Purple/Indigo */
+  --primary-foreground: oklch(0.985 0 0);
 
-  --card: oklch(0.12 0 0);
+  --card: oklch(0.12 0.02 280);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.12 0 0);
+  --popover: oklch(0.12 0.02 280);
   --popover-foreground: oklch(0.985 0 0);
 
-  --secondary: oklch(0.2 0 0);
+  --secondary: oklch(0.2 0.02 280);
   --secondary-foreground: oklch(0.985 0 0);
 
-  --muted: oklch(0.2 0 0);
+  --muted: oklch(0.2 0.02 280);
   --muted-foreground: oklch(0.7 0 0);
 
-  --accent: oklch(0.2 0 0);
+  --accent: oklch(0.25 0.1 280);
   --accent-foreground: oklch(0.985 0 0);
 
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.985 0 0);
 
-  --border: oklch(0.2 0 0);
-  --input: oklch(0.2 0 0);
-  --ring: oklch(0.87 0.29 142);
+  --border: oklch(0.2 0.02 280);
+  --input: oklch(0.2 0.02 280);
+  --ring: oklch(0.65 0.25 280);
 
   --radius: 0.625rem;
 }

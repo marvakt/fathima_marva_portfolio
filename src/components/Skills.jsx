@@ -36,9 +36,9 @@ const Skills = () => {
     }, []);
 
     return (
-        <section id="skills" className="py-20 bg-background/50 overflow-hidden">
+        <section id="skills" className="min-h-screen flex items-center justify-center bg-background/50 overflow-hidden py-20">
             <div className="max-w-7xl mx-auto px-6 w-full text-center relative z-10">
-                <h2 className="text-5xl md:text-6xl font-bold mb-16 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
+                <h2 className="text-5xl md:text-6xl font-bold mb-16 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">
                     Technical Skills
                 </h2>
 

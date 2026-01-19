@@ -1,13 +1,13 @@
 const About = () => {
     return (
-        <section id="about" className="py-20 bg-background/50 relative overflow-hidden">
+        <section id="about" className="min-h-screen flex items-center justify-center bg-background/50 relative overflow-hidden py-20">
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
                 {/* Left Column - Bio */}
                 <div>
-                    <h2 className="text-5xl md:text-6xl font-bold mb-10 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
+                    <h2 className="text-5xl md:text-6xl font-bold mb-10 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">
                         About Me
                     </h2>
 

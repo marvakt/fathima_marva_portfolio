@@ -18,7 +18,7 @@ function App() {
       </main>
 
       <footer className="py-6 text-center text-gray-600 text-sm border-t border-white/10">
-        © 2024 Orion Portfolio. All rights reserved.
+        © 2025 Fathima Marva KT Portfolio. All rights reserved.
       </footer>
     </div>
   );

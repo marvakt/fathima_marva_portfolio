@@ -38,13 +38,13 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-20 bg-background/50 relative overflow-hidden">
+        <section id="contact" className="min-h-screen flex items-center justify-center bg-background/50 relative overflow-hidden py-20">
             {/* Background Elements */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 className="text-5xl md:text-6xl font-bold mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
+                    <h2 className="text-5xl md:text-6xl font-bold mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">
                         Get In Touch
                     </h2>
                     <p className="text-gray-400 mb-10 text-lg leading-relaxed">
@@ -129,12 +129,12 @@ const Contact = () => {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className={`w-full font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 relative z-10 shadow-[0_0_20px_rgba(0,255,148,0.3)] hover:shadow-[0_0_30px_rgba(0,255,148,0.5)] flex items-center justify-center gap-2
+                        className={`w-full font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 relative z-10 flex items-center justify-center gap-2
                             ${isSubmitted
-                                ? 'bg-green-500 text-black cursor-default'
+                                ? 'bg-green-500 text-black cursor-default shadow-[0_0_20px_rgba(34,197,94,0.5)]'
                                 : isSubmitting
-                                    ? 'bg-primary/70 text-black/70 cursor-wait'
-                                    : 'bg-primary text-black hover:bg-[#00cc76] active:scale-[0.98]'
+                                    ? 'bg-primary/70 text-black/70 cursor-wait shadow-[0_0_20px_rgba(0,255,148,0.3)]'
+                                    : 'bg-primary text-black hover:bg-purple-500 hover:text-white hover:shadow-[0_0_40px_rgba(168,85,247,0.8)] hover:scale-105 active:scale-[0.98] shadow-[0_0_20px_rgba(0,255,148,0.3)]'
                             }`}
                     >
                         {isSubmitted ? (

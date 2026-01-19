@@ -35,13 +35,13 @@ const Projects = () => {
     ];
 
     return (
-        <section id="projects" className="py-20 bg-background/50 relative overflow-hidden">
+        <section id="projects" className="min-h-screen flex items-center justify-center bg-background/50 relative overflow-hidden py-20">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <h2 className="text-5xl md:text-6xl font-bold mb-16 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 text-center">
+                <h2 className="text-5xl md:text-6xl font-bold mb-16 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary text-center">
                     Featured Projects
                 </h2>
 
