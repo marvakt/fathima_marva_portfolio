@@ -8,8 +8,7 @@ const Projects = () => {
             tags: ["Django", "FastAPI", "React", "Redux", "PostgreSQL", "MongoDB", "Celery", "Redis", "WebRTC", "LangChain", "Docker", "AWS"],
             image: "/mentora.png",
             links: {
-                code: "https://github.com/marvakt/single_project_mentora",
-                live: "https://mentora-frontend-pearl.vercel.app/"
+                code: "https://github.com/marvakt/single_project_mentora"
             }
         },
         {
@@ -60,9 +59,11 @@ const Projects = () => {
                                     <a href={project.links.code} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary hover:text-black backdrop-blur-md border border-white/20 rounded-full transition-all duration-300">
                                         <Github size={20} />
                                     </a>
-                                    <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary hover:text-black backdrop-blur-md border border-white/20 rounded-full transition-all duration-300">
-                                        <ExternalLink size={20} />
-                                    </a>
+                                    {project.links.live && (
+                                        <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary hover:text-black backdrop-blur-md border border-white/20 rounded-full transition-all duration-300">
+                                            <ExternalLink size={20} />
+                                        </a>
+                                    )}
                                 </div>
                             </div>
 
