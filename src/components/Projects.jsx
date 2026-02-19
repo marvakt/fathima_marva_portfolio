@@ -34,49 +34,55 @@ const Projects = () => {
     ];
 
     return (
-        <section id="projects" className="min-h-screen flex items-center justify-center bg-background/50 relative overflow-hidden py-20">
+        <section id="projects" className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden py-20">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <h2 className="text-5xl md:text-6xl font-bold mb-16 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary text-center">
-                    Featured Projects
-                </h2>
+                <div className="mb-20">
+                    <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-[#1a1a1b]">
+                        Projects<span className="text-[#ef6d58]">.</span>
+                    </h2>
+                    <p className="text-gray-500 font-bold uppercase tracking-widest text-sm mt-4">Selected digital experiences</p>
+                </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 gap-12">
                     {projects.map((project, index) => (
-                        <div key={index} className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] hover:-translate-y-2">
-                            {/* Image Overlay */}
-                            <div className="h-56 overflow-hidden relative">
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                        <div
+                            key={index}
+                            className="group relative overflow-hidden rounded-xl bg-[#f9f9f9] shadow-sm hover:shadow-2xl transition-all duration-500"
+                        >
+                            <div className="aspect-[16/10] overflow-hidden">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                                 />
-                                <div className="absolute bottom-4 left-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex gap-3">
-                                    <a href={project.links.code} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary hover:text-black backdrop-blur-md border border-white/20 rounded-full transition-all duration-300">
-                                        <Github size={20} />
-                                    </a>
-                                    {project.links.live && (
-                                        <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary hover:text-black backdrop-blur-md border border-white/20 rounded-full transition-all duration-300">
-                                            <ExternalLink size={20} />
-                                        </a>
-                                    )}
-                                </div>
                             </div>
 
-                            <div className="p-8">
-                                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                                <p className="text-gray-400 text-sm mb-6 leading-relaxed line-clamp-3">{project.description}</p>
-
+                            <div className="p-8 space-y-4">
                                 <div className="flex flex-wrap gap-2">
-                                    {project.tags.map((tag, idx) => (
-                                        <span key={idx} className="text-xs font-medium text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full group-hover:bg-primary/20 transition-colors duration-300">
+                                    {project.tags.slice(0, 3).map((tag, idx) => (
+                                        <span key={idx} className="text-[10px] uppercase font-bold tracking-widest text-[#ef6d58]">
                                             {tag}
                                         </span>
                                     ))}
+                                </div>
+                                <h3 className="text-3xl font-black text-[#1a1a1b] tracking-tight group-hover:text-[#ef6d58] transition-colors">{project.title}</h3>
+                                <p className="text-gray-500 text-base line-clamp-2">
+                                    {project.description}
+                                </p>
+
+                                <div className="flex gap-6 pt-4">
+                                    <a href={project.links.code} target="_blank" className="text-xs font-black text-[#1a1a1b] border-b-2 border-[#1a1a1b] pb-1 hover:text-[#ef6d58] hover:border-[#ef6d58] transition-all flex items-center gap-1">
+                                        <Github size={14} /> VIEW CODE
+                                    </a>
+                                    {project.links.live && (
+                                        <a href={project.links.live} target="_blank" className="text-xs font-black text-[#ef6d58] border-b-2 border-[#ef6d58] pb-1 hover:text-[#1a1a1b] hover:border-[#1a1a1b] transition-all flex items-center gap-1">
+                                            <ExternalLink size={14} /> LIVE DEMO
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </div>

@@ -18,39 +18,36 @@
 }
 
 :root {
-  /* Electric Violet Theme */
-  --background: oklch(0.05 0.02 280);
-  /* Deep Void Purple */
-  --foreground: oklch(0.985 0 0);
-  /* White text */
+  /* Salmon & White Reference Theme */
+  --background: #ffffff;
+  --foreground: #1a1a1b;
 
-  /* Electric Violet Primary */
-  --primary: oklch(0.65 0.25 280);
-  /* Vibrant Purple/Indigo */
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: #ef6d58;
+  /* Salmon Coral */
+  --primary-foreground: #ffffff;
 
-  --card: oklch(0.12 0.02 280);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.12 0.02 280);
-  --popover-foreground: oklch(0.985 0 0);
+  --card: #f9f9f9;
+  --card-foreground: #1a1a1b;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1b;
 
-  --secondary: oklch(0.2 0.02 280);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary: #f3f4f6;
+  --secondary-foreground: #1a1a1b;
 
-  --muted: oklch(0.2 0.02 280);
-  --muted-foreground: oklch(0.7 0 0);
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
 
-  --accent: oklch(0.25 0.1 280);
-  --accent-foreground: oklch(0.985 0 0);
+  --accent: #ef6d58;
+  --accent-foreground: #ffffff;
 
-  --destructive: oklch(0.6 0.2 25);
-  --destructive-foreground: oklch(0.985 0 0);
+  --destructive: #ef4444;
+  --destructive-foreground: #f9fafb;
 
-  --border: oklch(0.2 0.02 280);
-  --input: oklch(0.2 0.02 280);
-  --ring: oklch(0.65 0.25 280);
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #ef6d58;
 
-  --radius: 0.625rem;
+  --radius: 0.5rem;
 }
 
 /* Explicit mapping for Tailwind v4 compatibility if needed, 

@@ -1,113 +1,112 @@
 import { useRef } from 'react';
-import { ArrowRight, Linkedin, Github, Instagram } from 'lucide-react';
+import { Linkedin, Github, Instagram, Twitter } from 'lucide-react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 const Hero = () => {
     const containerRef = useRef(null);
-    const textRef = useRef(null);
-    const imageRef = useRef(null);
 
     useGSAP(() => {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        // Image Fade In
-        tl.fromTo(imageRef.current,
-            { opacity: 0, x: -50 },
-            { opacity: 1, x: 0, duration: 1.5 }
-        )
-            // Text Stagger
-            .fromTo(".hero-text-element",
-                { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 1, stagger: 0.2 },
-                "-=1" // Overlap with image animation
-            )
-            // Buttons
-            .fromTo(".hero-button",
-                { opacity: 0, scale: 0.9 },
-                { opacity: 1, scale: 1, duration: 0.5, stagger: 0.1 },
-                "-=0.5"
-            )
-            // Socials
-            .fromTo(".hero-social",
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
-                "-=0.3"
-            );
+        tl.from(".hero-fade", {
+            opacity: 0,
+            y: 30,
+            stagger: 0.2,
+            duration: 1
+        });
+
+        tl.from(".hero-shape", {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1.5,
+            ease: "elastic.out(1, 0.5)"
+        }, "-=1");
+
+        tl.from(".dotted-path", {
+            strokeDashoffset: 1000,
+            duration: 2
+        }, "-=1.5");
 
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="relative min-h-screen flex items-center pt-20 md:pt-12 pb-10 overflow-hidden bg-background">
-            {/* Background Gradient - Subtle central glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 blur-[150px] rounded-full pointer-events-none opacity-30"></div>
+        <section ref={containerRef} className="relative min-h-[90vh] flex items-center bg-white overflow-hidden pt-32 pb-20">
+            {/* Background Large Text (Watermark) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none z-0">
+                <h1 className="text-[20vw] font-black text-[#ef6d58]/5 leading-none">
+                    MARVA
+                </h1>
+            </div>
 
-            <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
-
-                {/* Left Content - Image */}
-                <div ref={imageRef} className="relative h-full flex justify-center md:justify-start order-2 md:order-1 opacity-0 mt-8 md:mt-0">
-                    <div className="relative w-full max-w-[350px] md:max-w-md aspect-square md:aspect-auto md:h-[600px]">
-                        {/* The Image with Clean Fade */}
-                        <img
-                            src="/marva.jpg"
-                            alt="Fathima Marva KT"
-                            className="w-full h-full object-cover transition-all duration-700"
-                            style={{
-                                maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-                                WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
-                            }}
-                        />
-
-                        {/* Subtle Violet Accent Glow */}
-                        <div className="absolute inset-0 pointer-events-none opacity-30">
-                            <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-primary/10 to-transparent blur-[30px]"></div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Right Content - Typography & Buttons */}
-                <div ref={textRef} className="space-y-6 order-1 md:order-2 text-right md:text-left pt-0 md:pt-10">
-                    <div className="space-y-3">
-                        <h2 className="hero-text-element text-lg md:text-xl font-medium text-gray-300 tracking-wide opacity-0">
-                            Hi, I'm
-                        </h2>
-                        <h1 className="hero-text-element text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-tight opacity-0">
-                            Fathima Marva KT
+            <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                {/* Left Content */}
+                <div className="space-y-8">
+                    <div className="space-y-2">
+                        <p className="hero-fade text-[#ef6d58] font-bold text-lg md:text-xl">Hola! I'm</p>
+                        <h2 className="hero-fade text-[#ef6d58] font-bold text-3xl md:text-4xl">Python Developer</h2>
+                        <h1 className="hero-fade text-6xl md:text-8xl font-black text-[#1a1a1b] leading-[1.1] tracking-tight">
+                            Fathima Marva<span className="text-[#ef6d58]">.</span>
                         </h1>
-                        <h3 className="hero-text-element text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/50 opacity-0">
-                            Full Stack Developer
-                        </h3>
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-end md:justify-start gap-4 pt-2">
+                    <p className="hero-fade text-gray-500 text-lg md:text-xl max-w-md leading-relaxed">
+                        As a Python developer, I focus on building robust backend systems, scalable APIs, and clean, efficient codebases.
+                    </p>
+
+                    <div className="hero-fade flex items-center gap-6">
+                        <a href="https://github.com/marvakt" target="_blank" className="text-[#1a1a1b] hover:text-[#ef6d58] transition-colors"><Github size={24} /></a>
+                        <a href="https://www.instagram.com/fathima__marva__/" target="_blank" className="text-[#1a1a1b] hover:text-[#ef6d58] transition-colors"><Instagram size={24} /></a>
+                        <a href="https://www.linkedin.com/in/marva-kt" target="_blank" className="text-[#1a1a1b] hover:text-[#ef6d58] transition-colors"><Linkedin size={24} /></a>
+                    </div>
+
+                    <div className="hero-fade pt-4">
                         <a
                             href="/resume.pdf"
-                            download="Fathima_Marva_Resume.pdf"
-                            className="hero-button opacity-0 px-6 py-3 md:px-8 md:py-4 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] flex items-center justify-center hover:scale-105 active:scale-95 text-sm md:text-base"
+                            className="inline-block bg-[#ef6d58] text-white px-10 py-5 rounded-md font-bold text-sm uppercase tracking-widest shadow-xl shadow-[#ef6d58]/30 hover:bg-[#d95d48] transition-all transform hover:-translate-y-1 relative z-10"
                         >
-                            Hire Me
-                        </a>
-
-                        <a href="#contact" className="hero-button opacity-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-all flex items-center gap-2 hover:scale-105 active:scale-95 text-sm md:text-base">
-                            <span>Let's Talk</span>
-                            <ArrowRight className="w-4 h-4" />
-                        </a>
-                    </div>
-
-                    {/* Socials */}
-                    <div className="flex gap-5 pt-4 items-center justify-end md:justify-start">
-                        <a href="https://www.linkedin.com/in/marva-kt" target="_blank" rel="noopener noreferrer" className="hero-social opacity-0 text-gray-400 hover:text-primary transition-colors hover:scale-110">
-                            <Linkedin size={22} />
-                        </a>
-                        <a href="https://github.com/marvakt" target="_blank" rel="noopener noreferrer" className="hero-social opacity-0 text-gray-400 hover:text-primary transition-colors hover:scale-110">
-                            <Github size={22} />
-                        </a>
-                        <a href="https://www.instagram.com/fathima__marva__/" target="_blank" rel="noopener noreferrer" className="hero-social opacity-0 text-gray-400 hover:text-primary transition-colors hover:scale-110">
-                            <Instagram size={22} />
+                            CV Here
                         </a>
                     </div>
                 </div>
 
+                {/* Right Image/Shape */}
+                <div className="relative flex justify-center lg:justify-end">
+                    {/* Organic Shape */}
+                    <div className="hero-shape absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#ef6d58] rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] z-0"></div>
+
+                    {/* Profile Image (specifically shifted left) */}
+                    <div className="relative z-10 w-full max-w-md aspect-[4/5] overflow-hidden lg:-translate-x-12 transition-transform duration-500">
+                        <img
+                            src="/marva.jpg"
+                            alt="Fathima Marva"
+                            className="w-full h-full object-cover grayscale brightness-110 contrast-125"
+                            style={{
+                                maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+                                WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
+                            }}
+                        />
+                    </div>
+
+                    {/* Dotted path SVG decoration with loop-de-loop */}
+                    <svg className="absolute -left-40 -bottom-40 w-[180%] h-[180%] pointer-events-none z-20" viewBox="0 0 1000 1000">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#ef6d58" opacity="0.6" />
+                            </marker>
+                        </defs>
+                        <path
+                            className="dotted-path"
+                            d="M 50 850 C 250 850 350 600 500 600 C 650 600 650 900 520 900 C 400 900 400 650 600 500 C 800 350 950 400 920 250"
+                            fill="none"
+                            stroke="#ef6d58"
+                            strokeWidth="3"
+                            strokeDasharray="12 12"
+                            opacity="0.4"
+                            markerEnd="url(#arrowhead)"
+                        />
+                    </svg>
+                </div>
             </div>
         </section>
     );

@@ -7,7 +7,7 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="bg-background min-h-screen text-white selection:bg-primary selection:text-black font-sans">
+    <div className="bg-white min-h-screen text-[#1a1a1b] selection:bg-[#ef6d58] selection:text-white font-sans">
       <Navbar />
       <main>
         <Hero />
@@ -17,8 +17,9 @@ function App() {
         <Contact />
       </main>
 
-      <footer className="py-6 text-center text-gray-600 text-sm border-t border-white/10">
-        © 2025 Fathima Marva KT Portfolio. All rights reserved.
+      <footer className="py-12 text-center text-gray-400 text-sm border-t border-gray-100 bg-white">
+        <p className="font-bold text-[#1a1a1b] mb-2 uppercase tracking-widest text-xs">Fathima Marva KT</p>
+        © 2025 Portfolio. All rights reserved.
       </footer>
     </div>
   );

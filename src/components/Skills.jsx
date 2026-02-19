@@ -22,7 +22,6 @@ const Skills = () => {
             keep: true,
         };
 
-        // Cleanup previous instance if any (though TagCloud appends)
         if (containerRef.current) {
             containerRef.current.innerHTML = "";
             TagCloud(container, texts, options);
@@ -36,18 +35,22 @@ const Skills = () => {
     }, []);
 
     return (
-        <section id="skills" className="min-h-screen flex items-center justify-center bg-background/50 overflow-hidden py-20">
-            <div className="max-w-7xl mx-auto px-6 w-full text-center relative z-10">
-                <h2 className="text-5xl md:text-6xl font-bold mb-16 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-primary">
-                    Technical Skills
-                </h2>
+        <section id="skills" className="relative py-32 bg-white overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+                <div className="mb-20">
+                    <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-[#1a1a1b]">
+                        Skills<span className="text-[#ef6d58]">.</span>
+                    </h2>
+                    <p className="text-gray-500 font-bold uppercase tracking-widest text-sm mt-4">Technical expertise and toolkit</p>
+                </div>
 
-                {/* 3D Tag Cloud */}
-                <div className="flex items-center justify-center relative h-[450px]">
-                    {/* Holographic Glow Effect */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 blur-[100px] rounded-full pointer-events-none animate-pulse"></div>
+                <div className="flex items-center justify-center relative min-h-[500px] md:min-h-[600px] bg-[#f9f9f9] rounded-3xl border border-gray-100">
+                    {/* Subtle Salmon Glow */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#ef6d58]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-                    <span className="tagcloud text-primary font-bold text-lg md:text-xl tracking-wide cursor-pointer relative z-20" ref={containerRef}></span>
+                    <div className="tagcloud-wrapper relative z-20 hover:scale-105 transition-transform duration-500 ease-out cursor-default">
+                        <span className="tagcloud text-[#ef6d58] font-black text-xl md:text-3xl tracking-tight" ref={containerRef}></span>
+                    </div>
                 </div>
             </div>
         </section>

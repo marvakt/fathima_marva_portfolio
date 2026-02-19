@@ -1,54 +1,81 @@
-import { ArrowRight, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const navLinks = [
+        { name: 'Home', href: '#home' },
+        { name: 'Contributors', href: '#contributors' },
+        { name: 'About me', href: '#about' },
+        { name: 'Services', href: '#services' },
+        { name: 'Portfolio', href: '#projects' },
+        { name: 'Contact', href: '#contact' },
+    ];
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
-            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
+            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
-                <div className="flex items-center gap-2 group cursor-pointer">
-                    <div className="w-10 h-10 relative flex items-center justify-center">
-                        <div className="absolute inset-0 border-2 border-primary/50 rounded-lg transform rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
-                        <div className="w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#00FF94]"></div>
-                    </div>
-                    <span className="text-2xl font-bold tracking-tighter text-white group-hover:text-primary transition-colors duration-300">
-                        Marva<span className="text-primary">.</span>
-                    </span>
-                </div>
+                <a href="#home" className="text-2xl font-black text-[#1a1a1b] tracking-tighter">
+                    MARVA<span className="text-[#ef6d58]">.</span>
+                </a>
 
                 {/* Desktop Links */}
-                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                    <a href="#" className="hover:text-primary transition-colors">Home</a>
-                    <a href="#about" className="hover:text-primary transition-colors">About</a>
-                    <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
-                    <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
-                    <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+                <div className="hidden lg:flex items-center gap-8">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            className="text-sm font-bold text-[#1a1a1b] hover:text-[#ef6d58] transition-colors"
+                        >
+                            {link.name}
+                        </a>
+                    ))}
                 </div>
 
+                {/* Desktop Action Button */}
+                <div className="hidden lg:block">
 
+                </div>
 
                 {/* Mobile Menu Toggle */}
-                <button
-                    className="md:hidden text-white"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X /> : <Menu />}
+                <button className="lg:hidden text-[#1a1a1b]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
 
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden bg-black/95 absolute top-20 left-0 w-full p-6 flex flex-col gap-6 border-b border-white/10">
-                    <a href="#" className="text-xl hover:text-primary">Home</a>
-                    <a href="#about" className="text-xl hover:text-primary">About</a>
-                    <a href="#skills" className="text-xl hover:text-primary">Skills</a>
-                    <a href="#projects" className="text-xl hover:text-primary">Projects</a>
-                    <a href="#contact" className="text-xl hover:text-primary">Contact</a>
-
+            {/* Mobile Menu Overlay */}
+            <div className={`fixed inset-0 bg-white z-40 lg:hidden transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div className="flex flex-col items-center justify-center h-full gap-8">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="text-3xl font-black text-[#1a1a1b] hover:text-[#ef6d58]"
+                        >
+                            {link.name}
+                        </a>
+                    ))}
+                    <a
+                        href="#projects"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="bg-[#1a1a1b] text-white px-10 py-4 rounded-md font-black text-xl"
+                    >
+                        Portfolio Here
+                    </a>
                 </div>
-            )}
+            </div>
         </nav>
     );
 };
