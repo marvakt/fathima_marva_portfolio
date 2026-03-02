@@ -28,7 +28,7 @@ const Projects = () => {
             image: "/aires.png",
             links: {
                 code: "https://github.com/agenitic-lab/Resume-Agent.git",
-                live: "resiko.app"
+                live: "https://resiko.app/"
             }
         }
     ];
