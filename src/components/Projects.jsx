@@ -22,13 +22,13 @@ const Projects = () => {
             }
         },
         {
-            title: "AiRes",
-            description: "A food recipe builder where users input available ingredients to discover various recipes. Designed to reduce food waste and inspire creativity in the kitchen with a simple, intuitive interface.",
+            title: "Resiko",
+            description: "An intelligent resume optimization system built with LangGraph that automatically analyzes, scores, and improves resumes to match job descriptions using multi-agent workflows.",
             tags: ["React", "FastApi", "LangGraph"],
             image: "/aires.png",
             links: {
                 code: "https://github.com/agenitic-lab/Resume-Agent.git",
-                live: "https://aires-agent.vercel.app/"
+                live: "resiko.app"
             }
         }
     ];
