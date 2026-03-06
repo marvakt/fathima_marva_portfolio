@@ -31,7 +31,7 @@ const Hero = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="relative min-h-[90vh] flex items-center bg-white overflow-hidden pt-32 pb-20">
+        <section id="home" ref={containerRef} className="relative min-h-[90vh] flex items-center bg-white overflow-hidden pt-32 pb-20">
             {/* Background Large Text (Watermark) */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none z-0">
                 <h1 className="text-[20vw] font-black text-[#ef6d58]/5 leading-none">
