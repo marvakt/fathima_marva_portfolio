@@ -32,6 +32,22 @@ const Hero = () => {
 
     return (
         <section id="home" ref={containerRef} className="relative min-h-[90vh] flex items-center bg-white overflow-hidden pt-32 pb-20">
+            {/* Image mixed into background */}
+            <div className="hero-shape absolute inset-0 z-0 pointer-events-none">
+                <img
+                    src="/marva_oilpaint.png"
+                    alt=""
+                    className="absolute right-0 top-0 h-full w-[60%] object-cover object-top"
+                    style={{
+                        opacity: 0.6,
+                        maskImage: 'linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 100%)',
+                        maskComposite: 'intersect',
+                        WebkitMaskComposite: 'destination-in',
+                    }}
+                />
+            </div>
+
             {/* Background Large Text (Watermark) */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none z-0">
                 <h1 className="text-[20vw] font-black text-[#ef6d58]/5 leading-none">
@@ -45,7 +61,7 @@ const Hero = () => {
                     <div className="space-y-2">
                         <p className="hero-fade text-[#ef6d58] font-bold text-lg md:text-xl">Hola! I'm</p>
                         <h2 className="hero-fade text-[#ef6d58] font-bold text-3xl md:text-4xl">Python Developer</h2>
-                        <h1 className="hero-fade text-6xl md:text-8xl font-black text-[#1a1a1b] leading-[1.1] tracking-tight">
+                        <h1 className="hero-fade text-6xl md:text-8xl font-black text-[#1a1a1b] leading-[1.1] tracking-tighter">
                             Fathima Marva<span className="text-[#ef6d58]">.</span>
                         </h1>
                     </div>
@@ -70,43 +86,8 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Right Image/Shape */}
-                <div className="relative flex justify-center lg:justify-end">
-                    {/* Organic Shape */}
-                    <div className="hero-shape absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#ef6d58] rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] z-0"></div>
-
-                    {/* Profile Image (specifically shifted left) */}
-                    <div className="relative z-10 w-full max-w-md aspect-[4/5] overflow-hidden lg:-translate-x-12 transition-transform duration-500">
-                        <img
-                            src="/marva.jpg"
-                            alt="Fathima Marva"
-                            className="w-full h-full object-cover grayscale brightness-110 contrast-125"
-                            style={{
-                                maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
-                                WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
-                            }}
-                        />
-                    </div>
-
-                    {/* Dotted path SVG decoration with loop-de-loop */}
-                    <svg className="absolute -left-40 -bottom-40 w-[180%] h-[180%] pointer-events-none z-20" viewBox="0 0 1000 1000">
-                        <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="#ef6d58" opacity="0.6" />
-                            </marker>
-                        </defs>
-                        <path
-                            className="dotted-path"
-                            d="M 50 850 C 250 850 350 600 500 600 C 650 600 650 900 520 900 C 400 900 400 650 600 500 C 800 350 950 400 920 250"
-                            fill="none"
-                            stroke="#ef6d58"
-                            strokeWidth="3"
-                            strokeDasharray="12 12"
-                            opacity="0.4"
-                            markerEnd="url(#arrowhead)"
-                        />
-                    </svg>
-                </div>
+                {/* Empty right column to maintain layout balance */}
+                <div></div>
             </div>
         </section>
     );
